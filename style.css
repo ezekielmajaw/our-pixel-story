@@ -1,0 +1,3050 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd6e7,
+            #ffe6f0,
+            #ffc4dc
+        );
+
+    font-family: 'VT323', monospace;
+
+    color: #5b3045;
+
+    overflow: hidden;
+}
+
+/* Main screen */
+
+/* Opening page only */
+
+.start-screen {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 50px;
+
+    width: 90%;
+    max-width: 800px;
+
+    margin: auto;
+}
+
+/* Pixel heart */
+
+.pixel-heart {
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 70px;
+
+    color: #ff5c9a;
+
+    margin-bottom: 30px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+/* Main heading */
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: clamp(22px, 4vw, 40px);
+
+    line-height: 1.7;
+
+    color: #6b304d;
+
+    text-shadow:
+        4px 4px 0 #ffb6d2;
+
+    margin-bottom: 25px;
+}
+
+/* Subtitle */
+
+p {
+    font-size: 28px;
+
+    margin-bottom: 40px;
+
+    color: #75445a;
+}
+
+/* Start button */
+
+button {
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 14px;
+
+    padding: 20px 30px;
+
+    background: #ff8fba;
+
+    color: white;
+
+    border: 4px solid #6b304d;
+
+    box-shadow:
+        6px 6px 0 #6b304d;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+button:hover {
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        3px 3px 0 #6b304d;
+
+    background: #ff73a8;
+}
+
+button:active {
+    transform: translate(6px, 6px);
+
+    box-shadow: none;
+}
+
+/* Sparkles */
+
+.sparkles {
+    margin-top: 45px;
+
+    font-size: 25px;
+
+    color: #ff6fa7;
+
+    animation: sparkle 2s infinite;
+}
+
+/* Animations */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   PIXEL GAME SCENE
+========================================= */
+
+.game-scene {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            #ffd1e3 0%,
+            #ffe9f1 55%,
+            #ffc4da 100%
+        );
+
+}
+
+
+/* =========================================
+   CLOUDS
+========================================= */
+
+.cloud {
+
+    position: absolute;
+
+    font-size: 55px;
+
+    opacity: 0.7;
+
+    animation: cloudMove 18s linear infinite;
+
+}
+
+
+.cloud-one {
+
+    top: 12%;
+
+    left: -100px;
+
+}
+
+
+.cloud-two {
+
+    top: 25%;
+
+    left: -300px;
+
+    animation-delay: 7s;
+
+}
+
+
+@keyframes cloudMove {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(120vw);
+
+    }
+
+}
+
+
+/* =========================================
+   SUN
+========================================= */
+
+.sun {
+
+    position: absolute;
+
+    top: 10%;
+
+    right: 12%;
+
+    font-size: 65px;
+
+    animation: sunGlow 3s ease-in-out infinite;
+
+}
+
+
+@keyframes sunGlow {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.1);
+
+    }
+
+}
+
+
+/* =========================================
+   CHAPTER LABEL
+========================================= */
+
+.chapter-label {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 30px;
+
+    padding: 12px 18px;
+
+    background: #fff0f6;
+
+    border: 3px solid #6b304d;
+
+    box-shadow: 5px 5px 0 #6b304d;
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 11px;
+
+    color: #6b304d;
+
+}
+
+
+/* =========================================
+   SCHOOL
+========================================= */
+
+.school {
+
+    position: absolute;
+
+    bottom: 27%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 420px;
+
+}
+
+
+/* Roof */
+
+.school-roof {
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 230px solid transparent;
+
+    border-right: 230px solid transparent;
+
+    border-bottom: 110px solid #b85b7c;
+
+}
+
+
+/* Building */
+
+.school-building {
+
+    height: 260px;
+
+    background: #ffe5ef;
+
+    border: 7px solid #6b304d;
+
+    position: relative;
+
+    box-shadow: 10px 10px 0 #6b304d;
+
+}
+
+
+/* School sign */
+
+.school-sign {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #ff9fc1;
+
+    border: 4px solid #6b304d;
+
+    padding: 12px 25px;
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 12px;
+
+}
+
+
+/* Windows */
+
+.school-window {
+
+    position: absolute;
+
+    top: 100px;
+
+    width: 65px;
+
+    height: 70px;
+
+    background: #bcecff;
+
+    border: 5px solid #6b304d;
+
+}
+
+
+.window-one {
+
+    left: 45px;
+
+}
+
+
+.window-two {
+
+    right: 45px;
+
+}
+
+
+/* Door */
+
+.school-door {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 75px;
+
+    height: 110px;
+
+    background: #9b4d6b;
+
+    border: 5px solid #6b304d;
+
+    font-size: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================
+   GROUND
+========================================= */
+
+.ground {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 28%;
+
+    background: #a9d88c;
+
+    border-top: 8px solid #6b304d;
+
+}
+
+
+.grass {
+
+    width: 100%;
+
+    height: 100%;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            #78b96c 3px,
+            transparent 4px
+        );
+
+    background-size: 35px 25px;
+
+}
+
+
+/* =========================================
+   CHARACTER
+========================================= */
+
+.character {
+
+    position: absolute;
+
+    bottom: 28%;
+
+    left: 12%;
+
+    width: 90px;
+
+    text-align: center;
+
+    z-index: 10;
+
+    animation: characterWalk 3s ease-in-out forwards;
+
+}
+
+
+.character-head {
+
+    font-size: 55px;
+
+}
+
+
+.character-body {
+
+    font-size: 45px;
+
+    margin-top: -10px;
+
+}
+
+
+.character-bag {
+
+    position: absolute;
+
+    right: -10px;
+
+    top: 45px;
+
+    font-size: 30px;
+
+}
+
+
+/* Walking animation */
+
+@keyframes characterWalk {
+
+    from {
+
+        left: 12%;
+
+    }
+
+    to {
+
+        left: 40%;
+
+    }
+
+}
+
+
+/* =========================================
+   STORY BOX
+========================================= */
+
+.game-story {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 6%;
+
+    transform: translateX(-50%);
+
+    width: min(700px, 85%);
+
+    background: rgba(255, 245, 249, 0.95);
+
+    border: 5px solid #6b304d;
+
+    box-shadow: 8px 8px 0 #6b304d;
+
+    padding: 20px;
+
+    z-index: 20;
+
+}
+
+
+.game-story p {
+
+    margin: 0;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 28px;
+
+    color: #63394d;
+
+}
+
+
+/* =========================================
+   NEXT BUTTON
+========================================= */
+
+.game-scene #nextButton {
+
+    position: absolute;
+
+    right: 35px;
+
+    bottom: 35px;
+
+    z-index: 30;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .school {
+
+        transform: translateX(-50%) scale(0.65);
+
+        bottom: 31%;
+
+    }
+
+
+    .character {
+
+        transform: scale(0.75);
+
+    }
+
+
+    .game-story {
+
+        bottom: 4%;
+
+        padding: 15px;
+
+    }
+
+
+    .game-story p {
+
+        font-size: 23px;
+
+    }
+
+
+    .game-scene #nextButton {
+
+        right: 15px;
+
+        bottom: 150px;
+
+        font-size: 10px;
+
+        padding: 15px;
+
+    }
+
+}
+
+/* =========================================
+   CHAPTER 2 — NEW BEGINNING
+========================================= */
+
+.new-chapter {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            #fff4f8,
+            #ffd8e8 45%,
+            #ffbfd8 100%
+        );
+
+}
+
+
+/* Content */
+
+.new-chapter-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 750px;
+
+    width: 90%;
+
+}
+
+
+/* Graduation icon */
+
+.graduation-icon {
+
+    font-size: 80px;
+
+    margin-bottom: 30px;
+
+    animation:
+
+        graduationFloat
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* Heading */
+
+.new-chapter h1 {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            48px
+        );
+
+    line-height: 1.7;
+
+    color: #6b304d;
+
+    text-shadow:
+        5px 5px 0 #ffadc9;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* Story */
+
+.new-story-box {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+
+    border:
+        5px solid #6b304d;
+
+    box-shadow:
+        8px 8px 0 #6b304d;
+
+    padding: 30px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.new-story-box p {
+
+    font-size: 30px;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+
+}
+
+
+.new-story-box p:last-child {
+
+    margin-bottom: 0;
+
+    color: #d94f83;
+
+    font-weight: bold;
+
+}
+
+
+/* Stars */
+
+.floating-star {
+
+    position: absolute;
+
+    color: #ff6fa5;
+
+    font-size: 35px;
+
+    animation:
+        starFloat
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.star-one {
+
+    top: 15%;
+
+    left: 15%;
+
+}
+
+
+.star-two {
+
+    top: 25%;
+
+    right: 18%;
+
+    animation-delay: 1s;
+
+}
+
+
+.star-three {
+
+    bottom: 20%;
+
+    left: 22%;
+
+    animation-delay: 2s;
+
+}
+
+
+/* Animations */
+
+@keyframes graduationFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px)
+            scale(1.3);
+
+        opacity: 1;
+
+    }
+
+}
+
+/* =========================================
+   CHAPTER 3 — UNIVERSITY
+========================================= */
+
+.university-scene {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            #ffd1e3 0%,
+            #ffeaf2 50%,
+            #ffc8dc 100%
+        );
+
+}
+
+
+/* =========================================
+   CLOUDS
+========================================= */
+
+.uni-cloud {
+
+    position: absolute;
+
+    font-size: 55px;
+
+    opacity: 0.7;
+
+    animation:
+        universityCloudMove
+        20s
+        linear
+        infinite;
+
+}
+
+
+.cloud-1 {
+
+    top: 12%;
+
+    left: -100px;
+
+}
+
+
+.cloud-2 {
+
+    top: 24%;
+
+    left: -300px;
+
+    animation-delay: 8s;
+
+}
+
+
+@keyframes universityCloudMove {
+
+    from {
+
+        transform:
+            translateX(0);
+
+    }
+
+    to {
+
+        transform:
+            translateX(120vw);
+
+    }
+
+}
+
+
+/* =========================================
+   SUN
+========================================= */
+
+.uni-sun {
+
+    position: absolute;
+
+    top: 10%;
+
+    right: 12%;
+
+    font-size: 65px;
+
+    animation:
+        universitySun
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes universitySun {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.1);
+
+    }
+
+}
+
+
+/* =========================================
+   DAY COUNTER
+========================================= */
+
+.day-counter {
+
+    position: absolute;
+
+    top: 30px;
+
+    right: 30px;
+
+    background: #fff0f6;
+
+    border: 4px solid #6b304d;
+
+    box-shadow:
+        5px 5px 0 #6b304d;
+
+    padding: 15px 20px;
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 12px;
+
+    color: #6b304d;
+
+}
+
+
+/* =========================================
+   UNIVERSITY
+========================================= */
+
+.university {
+
+    position: absolute;
+
+    bottom: 30%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 500px;
+
+}
+
+
+/* Roof */
+
+.uni-roof {
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        270px solid transparent;
+
+    border-right:
+        270px solid transparent;
+
+    border-bottom:
+        120px solid #b85b7c;
+
+}
+
+
+/* Building */
+
+.uni-building {
+
+    position: relative;
+
+    height: 270px;
+
+    background:
+        #ffe5ef;
+
+    border:
+        7px solid #6b304d;
+
+    box-shadow:
+        10px 10px 0 #6b304d;
+
+}
+
+
+/* Sign */
+
+.uni-sign {
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #ff9fc1;
+
+    border:
+        4px solid #6b304d;
+
+    padding:
+        14px 25px;
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 13px;
+
+}
+
+
+/* Columns */
+
+.uni-columns {
+
+    position: absolute;
+
+    top: 100px;
+
+    left: 40px;
+
+    right: 40px;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+}
+
+
+.uni-columns div {
+
+    width: 55px;
+
+    height: 120px;
+
+    background:
+        #fff2f7;
+
+    border:
+        5px solid #6b304d;
+
+}
+
+
+/* Door */
+
+.uni-door {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 80px;
+
+    height: 115px;
+
+    background:
+        #9b4d6b;
+
+    border:
+        5px solid #6b304d;
+
+    display: flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-size: 25px;
+
+}
+
+
+/* =========================================
+   STUDENT
+========================================= */
+
+.student-character {
+
+    position: absolute;
+
+    bottom: 30%;
+
+    left: 12%;
+
+    width: 90px;
+
+    text-align: center;
+
+    z-index: 10;
+
+    animation:
+        studentWalk
+        4s
+        ease-in-out
+        forwards;
+
+}
+
+
+.student-head {
+
+    font-size: 55px;
+
+}
+
+
+.student-body {
+
+    font-size: 45px;
+
+    margin-top: -10px;
+
+}
+
+
+.student-bag {
+
+    position: absolute;
+
+    top: 45px;
+
+    right: -10px;
+
+    font-size: 30px;
+
+}
+
+
+@keyframes studentWalk {
+
+    from {
+
+        left: 10%;
+
+    }
+
+    to {
+
+        left: 38%;
+
+    }
+
+}
+
+
+/* =========================================
+   QUEST BOX
+========================================= */
+
+.quest-box {
+
+    position: absolute;
+
+    top: 18%;
+
+    left: 5%;
+
+    width: 320px;
+
+    background:
+        rgba(
+            255,
+            247,
+            250,
+            0.95
+        );
+
+    border:
+        5px solid #6b304d;
+
+    box-shadow:
+        8px 8px 0 #6b304d;
+
+    padding: 20px;
+
+    z-index: 20;
+
+}
+
+
+.quest-title {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 11px;
+
+    color: #d94f83;
+
+    margin-bottom: 20px;
+
+    line-height: 1.6;
+
+}
+
+
+.quest-item {
+
+    font-size: 23px;
+
+    margin:
+        14px 0;
+
+    color: #63394d;
+
+    transition:
+        0.3s;
+
+}
+
+
+/* Completed quest */
+
+.quest-item.completed {
+
+    color: #d94f83;
+
+    text-decoration:
+        line-through;
+
+}
+
+
+/* =========================================
+   DIALOGUE
+========================================= */
+
+.uni-dialogue {
+
+    position: absolute;
+
+    bottom: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(700px, 75%);
+
+    background:
+        rgba(
+            255,
+            245,
+            249,
+            0.97
+        );
+
+    border:
+        5px solid #6b304d;
+
+    box-shadow:
+        8px 8px 0 #6b304d;
+
+    padding: 20px;
+
+    z-index: 30;
+
+}
+
+
+.uni-dialogue p {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    color: #63394d;
+
+}
+
+
+/* Button */
+
+.university-scene #uniNext {
+
+    position: absolute;
+
+    right: 35px;
+
+    bottom: 35px;
+
+    z-index: 40;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .university {
+
+        transform:
+            translateX(-50%)
+            scale(0.6);
+
+        bottom: 32%;
+
+    }
+
+
+    .quest-box {
+
+        top: 15%;
+
+        left: 15px;
+
+        width: 260px;
+
+        padding: 15px;
+
+    }
+
+
+    .quest-item {
+
+        font-size: 19px;
+
+    }
+
+
+    .uni-dialogue {
+
+        width: 90%;
+
+        bottom: 5%;
+
+    }
+
+
+    .uni-dialogue p {
+
+        font-size: 23px;
+
+    }
+
+
+    .university-scene #uniNext {
+
+        bottom: 145px;
+
+        right: 15px;
+
+        font-size: 10px;
+
+        padding: 15px;
+
+    }
+
+}
+
+/* =========================================
+   CHAPTER 4 — PRESENTATION BOSS
+========================================= */
+
+.boss-scene {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #fff4f8 0%,
+            #ffd9e8 50%,
+            #ffbcd6 100%
+        );
+
+}
+
+
+/* =========================================
+   FLOATING STARS
+========================================= */
+
+.boss-star {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    color: #ff6fa5;
+
+    animation:
+        bossStarFloat
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.star-a {
+
+    top: 15%;
+
+    left: 12%;
+
+}
+
+
+.star-b {
+
+    top: 20%;
+
+    right: 15%;
+
+    animation-delay: 0.8s;
+
+}
+
+
+.star-c {
+
+    bottom: 20%;
+
+    left: 18%;
+
+    animation-delay: 1.5s;
+
+}
+
+
+.star-d {
+
+    bottom: 25%;
+
+    right: 12%;
+
+    animation-delay: 2s;
+
+}
+
+
+@keyframes bossStarFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px)
+            rotate(15deg);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================
+   BOSS SCREEN
+========================================= */
+
+.boss-screen {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(850px, 90%);
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+/* =========================================
+   BOSS TITLE
+========================================= */
+
+.boss-title {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 15px;
+
+    color: #d94f83;
+
+    margin-bottom: 25px;
+
+    animation:
+        bossTitlePulse
+        1.5s
+        infinite;
+
+}
+
+
+@keyframes bossTitlePulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.05);
+
+    }
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.boss-screen h1 {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            45px
+        );
+
+    line-height: 1.6;
+
+    color: #6b304d;
+
+    text-shadow:
+        5px 5px 0 #ffadc9;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   BOSS CHARACTER
+========================================= */
+
+.presentation-boss {
+
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 150px;
+
+    height: 150px;
+
+    background: #fff0f6;
+
+    border: 6px solid #6b304d;
+
+    box-shadow:
+        8px 8px 0 #6b304d;
+
+    margin-bottom: 25px;
+
+    animation:
+        bossFloat
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+.boss-face {
+
+    font-size: 65px;
+
+}
+
+
+.boss-name {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    color: #6b304d;
+
+}
+
+
+@keyframes bossFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats {
+
+    width: min(500px, 90%);
+
+    margin:
+        0 auto 25px;
+
+}
+
+
+.stat {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 12px 0;
+
+}
+
+
+.stat span {
+
+    width: 120px;
+
+    text-align: right;
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 8px;
+
+    color: #6b304d;
+
+}
+
+
+.bar {
+
+    flex: 1;
+
+    height: 22px;
+
+    background: #ffe2ed;
+
+    border: 4px solid #6b304d;
+
+}
+
+
+.bar-fill {
+
+    height: 100%;
+
+    transition:
+        width 0.8s
+        ease;
+
+}
+
+
+.confidence {
+
+    width: 65%;
+
+    background: #ff73a8;
+
+}
+
+
+.nerves {
+
+    width: 55%;
+
+    background: #b85b7c;
+
+}
+
+
+/* =========================================
+   DIALOGUE
+========================================= */
+
+.boss-dialogue {
+
+    background:
+        rgba(
+            255,
+            250,
+            252,
+            0.95
+        );
+
+    border:
+        5px solid #6b304d;
+
+    box-shadow:
+        7px 7px 0 #6b304d;
+
+    padding: 18px;
+
+    width: min(650px, 90%);
+
+    margin:
+        0 auto 25px;
+
+}
+
+
+.boss-dialogue p {
+
+    font-size: 27px;
+
+    margin: 0;
+
+    color: #63394d;
+
+}
+
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.boss-options {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.boss-options button {
+
+    font-size: 11px;
+
+    padding: 17px 22px;
+
+}
+
+
+/* =========================================
+   VICTORY
+========================================= */
+
+.victory {
+
+    display: none;
+
+    background:
+        rgba(
+            255,
+            250,
+            252,
+            0.97
+        );
+
+    border:
+        6px solid #6b304d;
+
+    box-shadow:
+        10px 10px 0 #6b304d;
+
+    padding: 30px;
+
+    margin-top: 20px;
+
+}
+
+
+.victory.show {
+
+    display: block;
+
+    animation:
+        victoryAppear
+        0.6s
+        ease;
+
+}
+
+
+.victory-icon {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.victory h2 {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size:
+        clamp(
+            18px,
+            4vw,
+            30px
+        );
+
+    line-height: 1.6;
+
+    color: #d94f83;
+
+    margin-bottom: 15px;
+
+}
+
+
+.victory p {
+
+    font-size: 25px;
+
+    margin: 8px 0;
+
+}
+
+
+.achievement {
+
+    display: inline-block;
+
+    margin:
+        15px 0 25px;
+
+    padding:
+        12px 15px;
+
+    background: #ffcae0;
+
+    border: 4px solid #6b304d;
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+}
+
+
+@keyframes victoryAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .boss-screen {
+
+        padding: 15px;
+
+    }
+
+
+    .boss-title {
+
+        font-size: 10px;
+
+    }
+
+
+    .presentation-boss {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .boss-face {
+
+        font-size: 50px;
+
+    }
+
+
+    .stat {
+
+        gap: 8px;
+
+    }
+
+
+    .stat span {
+
+        width: 90px;
+
+        font-size: 7px;
+
+    }
+
+
+    .boss-dialogue p {
+
+        font-size: 22px;
+
+    }
+
+
+    .boss-options button {
+
+        font-size: 9px;
+
+        padding: 14px;
+
+    }
+
+}
+
+/* =========================================
+   CHAPTER 5 — LOVE LETTER
+========================================= */
+
+.love-scene {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff7fa 0%,
+            #ffe0ec 55%,
+            #ffc4db 100%
+        );
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.love-heart {
+
+    position: absolute;
+
+    color: #ff6fa5;
+
+    font-size: 40px;
+
+    animation:
+        loveFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.heart-one {
+
+    top: 12%;
+
+    left: 12%;
+
+}
+
+
+.heart-two {
+
+    top: 20%;
+
+    right: 15%;
+
+    animation-delay: 1s;
+
+}
+
+
+.heart-three {
+
+    bottom: 18%;
+
+    left: 18%;
+
+    animation-delay: 2s;
+
+}
+
+
+.heart-four {
+
+    bottom: 25%;
+
+    right: 13%;
+
+    animation-delay: 3s;
+
+}
+
+
+@keyframes loveFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-18px)
+            scale(1.2);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.love-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(750px, 90%);
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.love-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    animation:
+        lovePulse
+        2s
+        infinite;
+
+}
+
+
+@keyframes lovePulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.12);
+
+    }
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.love-title {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size:
+        clamp(
+            24px,
+            5vw,
+            45px
+        );
+
+    color: #6b304d;
+
+    text-shadow:
+        5px 5px 0 #ffb0cb;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter-box {
+
+    background:
+        rgba(
+            255,
+            252,
+            253,
+            0.96
+        );
+
+    border:
+        5px solid #6b304d;
+
+    box-shadow:
+        9px 9px 0 #6b304d;
+
+    padding: 30px;
+
+    min-height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.letter-header {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 10px;
+
+    color: #d94f83;
+
+    margin-bottom: 25px;
+
+}
+
+
+.letter-text {
+
+    font-size: 31px;
+
+    line-height: 1.5;
+
+    color: #63394d;
+
+    max-width: 650px;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+#letterNext {
+
+    margin-top: 35px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .love-content {
+
+        width: 92%;
+
+    }
+
+    .letter-box {
+
+        padding: 20px;
+
+    }
+
+    .letter-text {
+
+        font-size: 24px;
+
+    }
+
+    .letter-header {
+
+        font-size: 8px;
+
+    }
+
+}
+
+/* =========================================
+   CHAPTER 6 — FINAL NIGHT
+========================================= */
+
+.final-scene {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            #24162f 0%,
+            #3d2347 45%,
+            #702f55 75%,
+            #a64f70 100%
+        );
+
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.stars span {
+
+    position: absolute;
+
+    color: #fff4fa;
+
+    font-size: 22px;
+
+    animation:
+        twinkle
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.stars span:nth-child(1) {
+    top: 12%;
+    left: 10%;
+}
+
+.stars span:nth-child(2) {
+    top: 20%;
+    left: 25%;
+    animation-delay: .5s;
+}
+
+.stars span:nth-child(3) {
+    top: 10%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.stars span:nth-child(4) {
+    top: 30%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+.stars span:nth-child(5) {
+    top: 40%;
+    left: 15%;
+}
+
+.stars span:nth-child(6) {
+    top: 15%;
+    right: 40%;
+    animation-delay: .7s;
+}
+
+.stars span:nth-child(7) {
+    top: 35%;
+    left: 45%;
+    animation-delay: 1.2s;
+}
+
+.stars span:nth-child(8) {
+    top: 25%;
+    right: 30%;
+}
+
+.stars span:nth-child(9) {
+    top: 8%;
+    left: 55%;
+    animation-delay: 1.8s;
+}
+
+.stars span:nth-child(10) {
+    top: 45%;
+    right: 45%;
+}
+
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+
+        opacity: .3;
+
+        transform:
+            scale(.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.3);
+
+    }
+
+}
+
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon {
+
+    position: absolute;
+
+    top: 8%;
+
+    right: 12%;
+
+    font-size: 85px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255, 230, 245, .6)
+        );
+
+    animation:
+        moonFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes moonFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+/* =========================================
+   CHAPTER LABEL
+========================================= */
+
+.final-chapter {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 30px;
+
+    padding: 12px 18px;
+
+    background:
+        rgba(
+            255,
+            235,
+            245,
+            .95
+        );
+
+    border:
+        3px solid #fff0f6;
+
+    box-shadow:
+        5px 5px 0
+        #160d20;
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    font-size: 11px;
+
+    color: #6b304d;
+
+}
+
+
+/* =========================================
+   COUPLE
+========================================= */
+
+.couple {
+
+    position: absolute;
+
+    bottom: 24%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 35px;
+
+}
+
+
+.pixel-person {
+
+    font-size: 80px;
+
+    animation:
+        personFloat
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.girl {
+
+    animation-delay:
+        .4s;
+
+}
+
+
+.boy {
+
+    animation-delay:
+        .8s;
+
+}
+
+
+.heart-between {
+
+    font-size: 30px;
+
+    margin-bottom: 45px;
+
+    animation:
+        heartFloat
+        1.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes personFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-6px);
+
+    }
+
+}
+
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =========================================
+   DIALOGUE BOX
+========================================= */
+
+.final-dialogue {
+
+    position: absolute;
+
+    bottom: 5%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(750px, 88%);
+
+    background:
+        rgba(
+            255,
+            246,
+            250,
+            .97
+        );
+
+    border:
+        5px solid #fff0f6;
+
+    box-shadow:
+        8px 8px 0
+        #160d20;
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+
+.final-text {
+
+    font-family:
+        'VT323',
+        monospace;
+
+    font-size: 31px;
+
+    line-height: 1.4;
+
+    color: #63394d;
+
+    min-height: 50px;
+
+}
+
+
+/* =========================================
+   FINAL BUTTON
+========================================= */
+
+#finalNext {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================
+   ENDING
+========================================= */
+
+.ending {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            #24162f,
+            #542746,
+            #9c4a69
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1.5s ease;
+
+}
+
+
+.ending.show {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+.ending-heart {
+
+    font-size: 60px;
+
+    animation:
+        lovePulse
+        1.5s
+        infinite;
+
+}
+
+
+.ending h1 {
+
+    font-family:
+        'Press Start 2P',
+        cursive;
+
+    color: #fff0f6;
+
+    text-shadow:
+        5px 5px 0
+        #7d3b59;
+
+    margin-top: 20px;
+
+}
+
+
+.ending p {
+
+    color: #ffd8e8;
+
+    font-size: 28px;
+
+    margin-top: 5px;
+
+}
+
+
+.ending-message {
+
+    margin-top: 35px;
+
+    padding: 25px;
+
+    width:
+        min(650px, 85%);
+
+    font-family:
+        'VT323',
+        monospace;
+
+    font-size: 30px;
+
+    line-height: 1.5;
+
+    color: #fff7fa;
+
+    border:
+        3px solid
+        rgba(
+            255,
+            255,
+            255,
+            .4
+        );
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .moon {
+
+        font-size: 60px;
+
+        right: 8%;
+
+    }
+
+
+    .pixel-person {
+
+        font-size: 60px;
+
+    }
+
+
+    .couple {
+
+        gap: 15px;
+
+        bottom: 30%;
+
+    }
+
+
+    .heart-between {
+
+        font-size: 22px;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .final-text {
+
+        font-size: 25px;
+
+    }
+
+
+    .ending h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .ending-message {
+
+        font-size: 24px;
+
+    }
+
+}
